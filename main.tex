@@ -1,0 +1,357 @@
+%% If you need to pass whatever options to xcolor
+\PassOptionsToPackage{dvipsnames}{xcolor}
+
+%% If you are using \orcid or academicons
+%% icons, make sure you have the academicons
+%% option here, and compile with XeLaTeX
+%% or LuaLaTeX.
+% \documentclass[10pt,a4paper,academicons]{altacv}
+
+%% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
+% \documentclass[10pt,a4paper,normalphoto]{altacv}
+
+%% Fork: CV dark mode toggle enabler to use a inverted color palette.
+%% Use the "darkmode" option if you want a color palette used to 
+% \documentclass[10pt,a4paper,darkmode]{altacv}
+
+\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
+
+%% AltaCV uses the fontawesome5 and academicons fonts
+%% and packages.
+%% See http://texdoc.net/pkg/fontawesome5 and http://texdoc.net/pkg/academicons for full list of symbols. You MUST compile with XeLaTeX or LuaLaTeX if you want to use academicons.
+
+% Change the page layout if you need to
+\geometry{left=1.2cm,right=1.2cm,top=1cm,bottom=1cm,columnsep=0.75cm}
+
+% The paracol package lets you typeset columns of text in parallel
+\usepackage{paracol}
+
+% Change the font if you want to, depending on whether
+% you're using pdflatex or xelatex/lualatex
+\ifxetexorluatex
+  % If using xelatex or lualatex:
+  \setmainfont{Roboto Slab}
+  \setsansfont{Lato}
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  % If using pdflatex:
+  \usepackage[rm]{roboto}
+  \usepackage[defaultsans]{lato}
+  % \usepackage{sourcesanspro}
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
+
+% Fork: Change the color codes to test your personal variant on any mode
+\ifdarkmode%
+  \definecolor{PrimaryColor}{HTML}{0F52D9}
+  \definecolor{SecondaryColor}{HTML}{3F7FFF}
+  \definecolor{ThirdColor}{HTML}{F3890B}
+  \definecolor{BodyColor}{HTML}{ABABAB}
+  \definecolor{EmphasisColor}{HTML}{ABA2A2}
+  \definecolor{BackgroundColor}{HTML}{242424}
+\else%
+  \definecolor{PrimaryColor}{HTML}{001F5A}
+  \definecolor{SecondaryColor}{HTML}{0039AC}
+  \definecolor{ThirdColor}{HTML}{F3890B}
+  \definecolor{BodyColor}{HTML}{666666}
+  \definecolor{EmphasisColor}{HTML}{2E2E2E}
+  \definecolor{BackgroundColor}{HTML}{E2E2E2}
+\fi%
+
+\colorlet{name}{PrimaryColor}
+\colorlet{tagline}{PrimaryColor}
+\colorlet{heading}{PrimaryColor}
+\colorlet{headingrule}{ThirdColor}
+\colorlet{subheading}{SecondaryColor}
+\colorlet{accent}{SecondaryColor}
+\colorlet{emphasis}{EmphasisColor}
+\colorlet{body}{BodyColor}
+\pagecolor{BackgroundColor}
+
+% Change some fonts, if necessary
+\renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+\renewcommand{\personalinfofont}{\small\bfseries}
+\renewcommand{\cvsectionfont}{\LARGE\rmfamily\bfseries}
+\renewcommand{\cvsubsectionfont}{\large\bfseries}
+
+% Change the bullets for itemize and rating marker
+% for \cvskill if you want to
+\renewcommand{\itemmarker}{{\small\textbullet}}
+\renewcommand{\ratingmarker}{\faCircle}
+
+%% sample.bib contains your publications
+%% \addbibresource{sample.bib}
+
+\begin{document}
+    \name{Gabriel G. Vargas}
+    \tagline{Engenheiro de Dados}
+    %% You can add multiple photos on the left or right
+    \photoL{4cm}{lattes}
+    
+    \personalinfo{
+        \email{gabgovar@gmail.com}\smallskip
+        \phone{(27) 99844-6324}
+        \location{São Paulo, SP}\\
+        \linkedin{gabgovar}
+        \github{gabgovar}
+        %\dev{johnDoe}
+        %\homepage{nicolasomar.me}
+        %\medium{nicolasomar}
+        %% You MUST add the academicons option to \documentclass, then compile with LuaLaTeX or XeLaTeX, if you want to use \orcid or other academicons commands.
+        \orcid{0000-0002-7559-8663 }
+        %% You can add your own arbtrary detail with
+        %% \printinfo{symbol}{detail}[optional hyperlink prefix]
+        % \printinfo{\faPaw}{Hey ho!}[https://example.com/]
+        %% Or you can declare your own field with
+        %% \NewInfoFiled{fieldname}{symbol}[optional hyperlink prefix] and use it:
+        % \NewInfoField{gitlab}{\faGitlab}[https://gitlab.com/]
+        % \gitlab{your_id}
+    }
+    
+    \makecvheader
+    %% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
+    % \AtBeginEnvironment{itemize}{\small}
+    
+    %% Set the left/right column width ratio to 6:4.
+    \columnratio{0.25}
+
+    % Start a 2-column paracol. Both the left and right columns will automatically
+    % break across pages if things get too long.
+    \begin{paracol}{2}
+        % ----- STRENGTHS -----
+        \cvsection{Habilidades}
+            \cvtag{Python}
+            \cvtag{R}
+            \cvtag{SQL}
+            \cvtag{NoSQL}
+            \cvtag{PySpark}
+            \cvtag{Matlab}
+            \cvtag{MySQL}
+            \cvtag{MongoDB}
+            \cvtag{Latex}
+            \cvtag{Linux}
+            \medskip
+            
+            %\cvtag{Red}
+            %\cvtag{Yellow}
+            %\cvtag{Blue}
+            %\cvtag{Green}
+            %\cvtag{Violet}
+            %\cvtag{Orange}
+        % ----- STRENGTHS -----
+        
+        % ----- LEARNING -----
+         \cvsection{Aprendendo}
+            \cvtag{AWS}
+            \cvtag{GCP}
+            \cvtag{Azure}
+            \cvtag{Power BI}
+            \cvtag{Tableau}
+            \cvtag{Airflow}
+            \cvtag{Kubernetes}
+            \cvtag{Docker}
+            %\cvtag{Nueve}
+            %\cvtag{Diez}
+            \medskip
+        % ----- LEARNING -----
+        
+        % ----- LANGUAGES -----
+         \cvsection{Linguas}
+            \cvlang{Inglês}{Intermediário / B2}\\
+            \divider
+            
+            %\cvlang{Lang 2}{Basic / A2}
+            %% Yeah I didn't spend too much time making all the
+            %% spacing consistent... sorry. Use \smallskip, \medskip,
+            %% \bigskip, \vpsace etc to make ajustments.
+            \smallskip
+        % ----- LANGUAGES -----
+            
+        % ----- REFERENCES -----
+        %\cvsection{References}
+        %    \cvref{Ref 1}{ref-1}
+        %    \divider
+            
+        %    \cvref{Ref 2}{ref-2}
+        %    \divider
+            
+        %    \cvref{Ref 3}{ref-3}
+        %   \smallskip
+        % ----- REFERENCES -----
+        
+        % ----- MOST PROUD -----
+        % \cvsection{Most Proud of}
+        
+        % \cvachievement{\faTrophy}{Fantastic Achievement}{and some details about it}\\
+        % \divider
+        % \cvachievement{\faHeartbeat}{Another achievement}{more details about it of course}\\
+        % \divider
+        % \cvachievement{\faHeartbeat}{Another achievement}{more details about it of course}
+        % ----- MOST PROUD -----
+        
+        % \cvsection{A Day of My Life}
+        
+        % Adapted from @Jake's answer from http://tex.stackexchange.com/a/82729/226
+        % \wheelchart{outer radius}{inner radius}{
+        % comma-separated list of value/text width/color/detail}
+        % \wheelchart{1.5cm}{0.5cm}{%
+        %   6/8em/accent!30/{Sleep,\\beautiful sleep},
+        %   3/8em/accent!40/Hopeful novelist by night,
+        %   8/8em/accent!60/Daytime job,
+        %   2/10em/accent/Sports and relaxation,
+        %   5/6em/accent!20/Spending time with family
+        % }
+        
+        % use ONLY \newpage if you want to force a page break for
+        % ONLY the current column
+        \newpage
+        
+        %% Switch to the right column. This will now automatically move to the second
+        %% page if the content is too long.
+        \switchcolumn
+        
+  % ----- ABOUT ME -----
+        \cvsection{Objetivo}
+            \begin{quote}
+                Desenvolver e aprimorar meus conhecimentos na área de engenharia de dados de forma crescente e contínua, a fim de entregar melhores resultados para a empresa.
+            \end{quote}
+        % ----- ABOUT ME -----
+        
+        % ----- EXPERIENCE -----
+        \cvsection{Experiência}
+            \cvevent{Engenheiro Pesquisador }{| Laboratório de Métodos Experimentais em Fenômenos de Transporte}{2017 -- 2019}{Vitória, ES}
+            \begin{itemize}
+                \item Projeto, construção e validação de bancadas experimentais.
+                \item Análise e tratamento de bancos de dados de ponta a ponta.
+                \item Gerenciamento de equipes multidisciplinares.
+            \end{itemize}
+            
+            \divider
+            
+            \cvevent{Professor Universitário }{| Multivix}{2018 -- 2019}{Vitória, ES}
+            \begin{itemize}
+                \item Professor do curso de graduação em Engenharia Mecânica, ministrando as seguintes disciplinas: \\ Mecânica dos fluidos, Transferência de calor, Termodinâmica, Máquinas de fluxo, Mecânica geral, Processos de fabricação, Resistência dos materiais, Vibrações mecânica.
+                \item Professor do curso de graduação em Fisioterapia, Nutrição e Medicina Veterinária, ministrando as seguintes disciplinas: \\ Matemática e Estatítisca.
+                %\item Third item
+            \end{itemize}
+            
+            \divider
+            
+            \cvevent{Professor Ensino Técnico }{| Colégio Lusiadas}{2016 -- 2017}{Cariacica, ES}
+            \begin{itemize}
+                \item Professor do curso Técnico em Mecânica, ministrando as seguintes disciplinas: \\ Hidráulica, Pneumática, Processos de Fabricação I e II, Manutenção Mecânica, Gestão da Manutenção, Elementos de Máquinas.
+                %\item Third item
+            \end{itemize}
+            
+             \divider
+            
+            \cvevent{Engenheiro Mecânico }{| Sondotécnica Engenharia de Solos}{2013 -- 2014}{Vitória, ES}
+            \begin{itemize}
+                \item Acompanhamento na execução de projetos básicos, executivos, fiscalização de obras e as biult de tubulações de gás natural para BR Distribuidora.
+                %\item Third item
+            \end{itemize}
+            
+                         \divider
+            
+            \cvevent{Estagiário de Engenheiro Mecânico }{| Eletrobras Eletronuclear}{2011 -- 2013}{Rio de Janeiro, RJ}
+            \begin{itemize}
+                \item Elaboração de desenhos de tubulações isométricos e suportes com auxílio de programas CAD. 
+                \item Seleção de peças de suporte de tubulação com catálogo - Testes de novas funcionalidades de programas CAD. 
+                \item Introdução a modelagem 3D de tubulações. 
+                \item Apoio na preparação e correção de consultas técnicas de fornecedores para alteração de desenhos de fabricação de estruturas mecânicas. 
+                \item Apoio na preparação e correção de planos de solda.
+                %\item Third item
+            \end{itemize}
+        % ----- EXPERIENCE -----
+        
+        % ----- EDUCATION -----
+        \cvsection{Educação}
+            \cvevent{Doutorado em Engenharia Mecânica}{| Universidade de São Paulo}{2019 -- até o momento}{São Paulo, SP}
+            \begin{itemize}
+                \item “Synthesis and Optimization of Residual Biomass Conversion Processes: Exergetic Analysis, Energy Integration and Assessment of CO$_{2}$ Emissions.”
+            \end{itemize}
+            
+            \divider
+            
+            \cvevent{Mestrado em Engenharia Mecânica }{| Universidade Federal do Espirito Santo}{2015 -- 2017}{Vitória, ES}
+            \begin{itemize}
+                \item “Análise da Tensão Limite de Escoamento em Emulsões A/O de Petróleos Parafínicos.”
+            \end{itemize}
+             
+             \divider
+            
+            \cvevent{MBA em Engenharia de Dados }{| Pontifícia Universidade Católica de Minas Gerais}{2021 -- até o momento}{Belo Horizonte, MG}
+            %\begin{itemize}
+                %\item “Análise da Tensão Limite de Escoamento em Emulsões A/O de Petróleos Parafínicos.”
+            %\end{itemize}
+            
+             \divider
+             
+            \cvevent{Engenheiro Mecânico}{| Universidade Federal Fluminense}{2008 -- 2013}{Niterói, RJ}
+            \begin{itemize}
+            
+                \item 2012 – 2013 - Bolsista do CNPq de inovação tecnologica. Projeto: Projeto de um sistema didádico de reconhecimento de imagens para controle de esteira transportadora.
+                
+                \item 2011 – 2012 - AeroDesign UFF - Projeto e construção de uma aeronave de carga – Responsável pelo projeto de arrasto e aerodinâmica da aeronave.
+                
+                \item 2010 – 2011 - Bolsista do CNPq de inovação tecnologica. Projeto: Simulações numéricas utilizando a metologia VOF e suas aplicações em escoamentos em torno de cascos de navios.
+            \end{itemize}
+        % ----- EDUCATION -----
+        
+        % ----- Publicações internacionais -----
+        \cvsection{Publicações em periódicos \\ internacionais}
+        %\usepackage[pdftex]{hyperref}
+            \begin{itemize}
+                \item VARGAS, G.G.; ANDRADE, R.M ; LOUREIRO, B.V. ; SOARES, E.J. . \textbf{Rheological properties of a cross-linked gel based on guar gum for hydraulic fracture of oil wells.} JOURNAL OF THE BRAZILIAN SOCIETY OF MECHANICAL SCIENCES AND ENGINEERING (ONLINE) , v. 42, p.498, 2020. \href{http://dx.doi.org/10.1007/s40430-020-02579-w}{Link}.
+                
+                \divider
+                
+                \item NOVELLI, G.L. ; FERRARI, L.A. ; VARGAS, G.G. ; LOUREIRO, B.V. . \textbf{A synergistic analysis of drag reduction on binary polymer mixtures containing guar gum.} INTERNATIONAL JOURNAL OF BIOLOGICAL MACROMOLECULES , v. 137, p. 1121-1129, 2019. \href{http://dx.doi.org/10.1016/j.ijbiomac.2019.07.042}{Link}.
+                
+                \divider
+                
+                \item RODRIGUES, ROBERTA K. ; SILVA, LUCAS A.S. ; VARGAS, GABRIEL G. ; LOUREIRO, BRUNO V. ; \textbf{Drag Reduction by Wormlike Micelles of a Biodegradable and Non-Biodegradable Surfactants. Journal of Surfactants and Detergents} , v. 23, p. 21-40, 2019. \href{http://dx.doi.org/10.1002/jsde.12354}{Link}.
+                
+                \divider
+                
+                \item VARGAS, GABRIEL G.; SOARES, EDSON J. ; THOMPSON, RONEY L. ; SANDOVAL, GUSTAVO A.B. ; ANDRADE, RAFHAEL M. ; CAMPOS, FLÁVIO B. ; TEIXEIRA, ADRIANA . \textbf{Emulsion effects on the yield stress of gelled waxy crude oils.} FUEL , v. 222, p. 444-456, 2018.\href{http://dx.doi.org/10.1016/j.fuel.2018.01.105}{Link}.
+            \end{itemize}
+
+        % ----- PROJECTS -----
+        
+        % ----- Publicações nacionais -----
+        \cvsection{TRABALHOS PUBLICADOS EM \\ CONFERÊNCIAS}
+        %\usepackage[pdftex]{hyperref}
+            \begin{itemize}
+                \item VARGAS, G.G. ; OLIVEIRA JUNIOR, S.\textbf{Exergy analysis of a hydrogen production plant with CO$_{2}$ capture.} In: 26th International Congress of Mechanical Engineering, 2021, Florianópilis. Proceedings COBEM 2021
+                
+                \divider
+                
+                \item NOVELLI, G.L. ; FERRARI, L.A. ; VARGAS, G.G. ; LOUREIRO, B.V.; \textbf{Estudo da Tensão de Deslizamento em Gel de Fraturamento Comercial.} In: Encontro Nacional de Construção de Poços de Petróleo e Gás, 2019, Serra Negra. Anais VIII ENAHPE, 2019.
+                
+                \divider
+                
+                \item FERRARI, L.A. ; NOVELLI, G.L. ; VARGAS, G.G. ; LOUREIRO, B.V.; \textbf{Efeitos de Misturas Poliméricas e Concentrações Salinas na Capacidade de Redução de Arrasto.} In: Encontro Nacional de Construção de Poços de Petróleo e Gás, 2019, Serra Negra. Anais VIII ENAHPE, 2019.
+                
+                \divider
+                
+                \item VARGAS, G.G. ; SOARES, E.J. ; Andrade, R.M; SILVA, L. A.S. ; LOUREIRO, B. V. . \textbf{Caracterização Reológica de Gel de Fraturamento Hidráulico e sua Capacidade de Redução de Arraste.} In: Encontro Nacional de Hidráulica de Perfuração de Poços de Petróleo, 2017, Domingos Martins. Anais ENAHPE, 2017.
+                
+                \divider
+                
+                \item VARGAS, G.G.; Andrade, R.M ; SANDOVAL, G.A.B. ; SOARES, E.J. ; THOMPSON, R.L. ; CAMPOS,F ; TEIXEIRA, A . \textbf{Influência da Temperatura Inicial na Tensão Limite de Cisalhamento de Óleos Parafínicos.} In: IX Congresso Nacional de Engenharia Mecânica, 2016, Fortaleza. Anais do CONEM 2016, 2016.
+                
+                \divider
+                
+                \item VARGAS, G.G.; Andrade, R.M ; SANDOVAL, G.A.B. ; SOARES, E.J. ; THOMPSON, R.L. ; TEIXEIRA, A ; CAMPOS, F . \textbf{Yield stress in waxy crude oil emulsions.} In: 16th Brazilian Congress of Thermal Sciences and Engineering, 2016, Vitória. Anais 16th ENCIT, 2016. 
+                
+                \divider
+                
+                \item VARGAS, G.G.; Andrade, R.M ; SANDOVAL, G.A.B. ; SOARES, E.J. ; THOMPSON, R.L. ; TEIXEIRA, A ; CAMPOS, F . \textbf{Emulsions effects on the rheology of a waxy crude oil.} In: The XVIIth International Congress on Rheology (ICR2016), 2016, Kyoto. Anais ICR 2016, 2016.
+            \end{itemize}
+
+            
+
+        % ----- PROJECTS -----
+    \end{paracol}
+\end{document}
